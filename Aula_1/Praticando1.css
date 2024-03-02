@@ -1,0 +1,22 @@
+body{
+    text-align: center;
+    margin-top: 150px;
+    font-size: xx-large;
+
+}
+
+.oswald{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+.navbar-nav{
+    margin-left: auto;
+}
+
+.navbar-nav .nav-link:hover{
+    background-color: #367a8d;
+    color: #ffffff;
+}

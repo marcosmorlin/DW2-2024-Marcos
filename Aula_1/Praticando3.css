@@ -1,0 +1,27 @@
+.navbar-nav{
+    margin-left: auto;
+}
+
+.anta-regular {
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+  }
+
+.div{
+  background-color: gray;
+}
+
+.custom-table{
+  font-size: 12px;
+}
+
+.custom-table thead{
+  color: azure;
+}
+
+.navbar-nav .nav-link:hover{
+  background-color: #367a8d;
+  color: #ffffff;
+}

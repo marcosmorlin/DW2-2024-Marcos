@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página 3</title>
+    <link rel="stylesheet" href="Praticando3.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anta&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #4293aa">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link" aria-current="page" href="../Aula_1/Praticando1.html">Inicio
+              </a>
+              <a class="nav-link" href="../Aula_1/Praticando2.html">Busca</a>
+              <a class="nav-link active" href="../Aula_1/Praticando3.html">Formulario/Tabela</a>
+              <a class="nav-link" href="../Aula_1/Praticando4.html">Postagem c/ imagem</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      
+      <a href="../Aula_1/Menu Principal.html" target="_self">
+        Voltar ao Menu 
+      </a>
+
+    <h2 class="anta-regular">Formulario de cadastro e tabela com dados</h2>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body" style="background-color: #e2e2e2;">
+                        <form>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome Completo</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Telefone</label>
+                                <input type="email" class="form-control" id="email" placeholder="(99)99999-9999">
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Seu@email.aqui">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputState" class="form-label">Estado de residencia</label>
+                                <select id="inputState" class="form-select">
+                                  <option selected>[Selecione]</option>
+                                  <option>...</option>
+                                </select>
+                              </div>
+                              <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary" style="background-color: green;">Enviar</button>
+                                <button type="submit" class="btn btn-primary" style="background-color: yellow;">Limpar</button>
+                              </div>   
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                    <div class="card">
+                        <table class="table table-striped custom-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Telefone</th>
+                                    <th>Email</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>José da Silva</td>
+                                    <td>(11)999785-4871</td>
+                                    <td>josesilva11@gmail.com</td>
+                                    <td>Santa Catarina</td>
+                                </tr>
+                                <tr>
+                                    <td>Marcos Willian Freitas</td>
+                                    <td>(11)999784-4812</td>
+                                    <td>mwfreitas@microsoft.com</td>
+                                    <td>Sao Paulo</td>
+                                </tr>
+                                <tr>
+                                    <td>Ana Luiza dos Reis Barco</td>
+                                    <td>(14)81475-4812</td>
+                                    <td>anareis@microsoft.com</td>
+                                    <td>Sao Paulo</td>
+                                </tr>
+                                <tr>
+                                    <td>Keila Santana de Souza</td>
+                                    <td>(17)99744-1155</td>
+                                    <td>keila santana@outlook.com</td>
+                                    <td>Sao Paulo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
