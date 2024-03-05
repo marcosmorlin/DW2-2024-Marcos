@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Praticando1.css">
+    
+</head>
+
+<body>
+    
+    <h2>Formulário de Cadastro</h2><br>
+
+
+    <form action="/action_page.php" method="get">
+        <div class="mb-5">
+            <div class="col-sm-5">
+                <label for="fname">Nome Completo:</label><br>
+                <input type="text" id="fname" name="fname" value=""  class="form-control"><br>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-2">
+                    <label for="phone">Telefone</label><br>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="(DD) XXXX-XXXX"  class="form-control" required><br>
+                </div>
+
+                <div class="col-sm-5">
+                    <label for="email">E-Mail</label><br>
+                    <input type="email" name="email" id="email" placeholder="Digite Seu Email..."  class="form-control" required><br>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-3 ">
+                    <label for="quantity">CPF</label><br>
+                    <input type="text" name="text" id="quantity" placeholder="XXX.XXX.XXX.XX"  class="form-control"  required><br>
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="date">Data de Nascimento</label><br>
+                    <input type="date" name="date" id="date"  class="form-control" required><br>
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="quantity">CEP</label><br>
+                    <input type="text" name="text" id="quantity" placeholder="XX-XXX-XXX"  class="form-control"><br>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-4">
+                    <label for="text">Endereço</label><br>
+                    <input type="text" name="text" id="text" placeholder="Rua, nº e bairro"  class="form-control"><br>
+                </div>
+
+                <div class="col-sm-3">
+                    <label for="fname">Cidade</label>
+
+                    <select name="cidade" id="cidade" class="form-control">
+                        <option selected>[Selecione...]</option>
+                        <option value="Sao Paulo"> Sao Paulo</option>
+                        <option value="Rio De Janeiro">Rio De Janeiro</option>
+                        <option value="Brasilia">Brasilia</option>
+                        <option value="Rio Branco">Rio Branco</option>
+                        <option value="Maceió">Maceió</option>
+                        <option value="Macapá">Macapá</option>
+                        <option value="Manaus">Manaus</option>
+                        <option value="Salvador">Salvador</option>
+                        <option value="Fortaleza">Fortaleza</option>
+                        <option value="Vitória">Vitória</option>
+                        <option value="Goiânia">Goiânia</option>
+                        <option value="São Luis">São Luis</option>
+                        <option value="Cuiabá">Cuiabá</option>
+                        <option value="Campo Grande">Campo Grande</option>
+                        <option value="Belo Horizonte">Belo Horizonte</option>
+                        <option value="Belém">Belém</option>
+                        <option value="João Pessoa">João Pessoa</option>
+                        <option value="Curitiba">Curitiba</option>
+                        <option value="Recife">Recife</option>
+                        <option value="Teresina">Teresina</option>
+                        <option value="Natal">Natal</option>
+                        <option value="Porto Alegre">Porto Alegre</option>
+                        <option value="Porto Velho">Porto Velho</option>
+                        <option value="Boa Vista">Boa Vista</option>
+                        <option value="Florianópolis">Florianópolis</option>
+                        <option value="Aracaju">Aracaju</option>
+                        <option value="Palmas">Palmas</option>
+                    </select><br>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-sm-3">
+                    <label for="img">Foto de Perfil </label><br>
+                    <input class="form-control" type="file" id="img" name="img" accept="image/*"><br>
+                </div>
+    
+                <div class="col-sm-4">
+                    <label for="PDF">Contrato Assinado(Em PDF) </label><br>
+                    <input class="form-control" type="file" id="pdf" name="pdf" accept=".pdf"><br>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-warning" type="reset">Limpar</button>
+        </div>
+    </form>
+</body>
+</html>
