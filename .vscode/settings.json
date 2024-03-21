@@ -1,0 +1,21 @@
+{
+    "liveServer.settings.port": 5501,
+    "deploy": {
+        "packages": [
+            {
+                "name": "DW2S5 project",
+                "description": "Diretório aulas DWS-2 2023/1",               
+                "deployOnSave": true
+            }
+        ],
+        "targets": [
+            {
+                "type": "local",
+                "name": "My local folder",
+                "description": "A local folder",
+
+                "dir": "C:\\xampp\\htdocs\\DW2-2024-Marcos"
+            }
+        ]
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <a href="../Aula_5/Menu principal.html" target="_self">
+        Voltar ao Menu 
+    </a><br>
+
+<h1>Formulario</h1>
+<br>
+
+    <form class="row g-3" action="destino.php" method="POST">
+            <div class="col-sm-3">
+                <label for="fname">Titulo da página:</label><br>
+                <input class="form-control" type="text" id="fname" name="titulo" required autofocus><br>
+
+                <label for="fname">Corpo:</label><br>
+                <textarea id="fname" class="form-control" rows="2" cols="30" name="corpo" required></textarea><br>
+
+                <label for="cor">Cor texto:</label><br>
+                <input type="color" id="cor" class="form-control" name="cor" required><br>
+
+                <label for="homepage">URL de uma imagem:</label><br>
+                <input type="url" id="homepage" class="form-control" name="homepage1" required><br>
+
+                <label for="homepage">URL de link:</label><br>
+                <input type="url" id="homepage" class="form-control" name="homepage2" required><br>
+
+                <label for="cor">Cor de plano de fundo da página:</label><br>
+                <input type="color" id="cor" class="form-control" name="corbg" required><br>
+
+                <button class="btn btn-primary" type="submit">Enviar</button>
+                <button class="btn btn-warning" type="reset">Limpar</button>
+            </div>
+    </form>
+    
+</body>
+</html>
