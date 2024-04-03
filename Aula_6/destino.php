@@ -29,9 +29,11 @@
 
     <p>
 
-    <a href="destino.php?nome=Eder&email=aaa">
-        Enviar dados = [nome = Eder | email = epansani@gmail.com]
-    </a>
+        <a href="destino.php?nome=marcos&email=marcos%40gmail.com&cor=lightgreen">
+            Enviar dados = [nome = marcos | email = marcos@gmail]
+        </a>
+
+    </p>
     <br>
 
     <br>
