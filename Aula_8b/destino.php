@@ -23,36 +23,40 @@
         $Final = filter_input(INPUT_POST, "Final", FILTER_SANITIZE_SPECIAL_CHARS);
         $Incremento = filter_input(INPUT_POST, "Incremento", FILTER_SANITIZE_SPECIAL_CHARS);
 
-        
-
     ?>
+
     <br>
 
     <p>
         <?php
 
-        echo "<h1>Parâmetros Informados: </h1> <br>Inicio" . " : " . $inicio;
+        echo "<h1>Parâmetros Informados: </h1> ";
 
         ?>
     </p>
 
     <p>
-    <?php
-        echo "Final " . " : " . $Final;
-    ?>
+        <?php
+            echo "Inicio " . " : " . $inicio;
+        ?>
     </p>
 
     <p>
         <?php
-        echo "Incremento " . " : " . $Incremento;
+            echo "Final " . " : " . $Final;
+        ?>
+    </p>
+
+    <p>
+        <?php
+            echo "Incremento " . " : " . $Incremento;
         ?>
     </p>
 
     <p>
         <?php
 
-       for($i = $inicio; $i += $Final; $i += $Incremento){
-
+        for($i = $inicio; $i = $Final; $i += $Incremento){
             echo $i . " ";
         }
 

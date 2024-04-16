@@ -9,7 +9,7 @@
 
     <body>
 
-        <a href="../Aula_8/Menu.principal.html" target="_self">
+        <a href="../Aula_8/Menu Principal.html" target="_self">
             <p>Voltar ao Menu</p>
         </a>
 
@@ -22,7 +22,7 @@
 
             <br>
             <button class="btn btn-success" type="submit">Enviar</button>
-            <button class="btn btn-warning" type="submit">Limpar</button>
+            <button class="btn btn-warning" type="reset">Limpar</button>
         </form>
         <hr>
 
