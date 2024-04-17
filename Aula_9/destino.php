@@ -24,16 +24,35 @@
     <br>
 
     <textarea id="text" name="text" rows="15" cols="140">
-        
+
         <?php
-           var_dump($_POST);
+            echo "<pre>";
+            var_dump($_POST);
+            echo "</pre>";
         ?> 
+    
     </textarea><br>
+
+    
 
     <?php
         echo "<h1>Interesses Selecionados (em ordem alfabética)</h1>";
 
+        $interesses = array_values($_POST);
+        sort($interesses);
+
+        echo "<ul>";
+
+        for($i = 0; $i < min (3, count($interesses)); $i++){
+            echo "<li>$interesses[$i]</li>";
+        }
         
+        echo "</ul>";
+
+        if(count($interesses) > 3){
+            echo "<li>...</li>";
+        }
+
     ?>
 
 </body>
