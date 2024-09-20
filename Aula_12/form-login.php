@@ -47,6 +47,7 @@ require 'cabeçalho.php'
                 $erro = $_SESSION["erro"];
                 unset($_SESSION["erro"]);
             ?>
+            <br>
                 <div class="alert alert-danger" role="alert">
                     <h4>falha ao efetuar autenticação.</h4>
                     <p><?php echo $erro ?></p>
