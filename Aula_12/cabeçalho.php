@@ -104,7 +104,7 @@
                 ?>
                     <span class="navbar-text">
                         <span data-feather="user"></span>
-                        <?php/*
+                        <?php
 
                         if(isAdmin()){
                         ?>
@@ -119,7 +119,7 @@
                                 <?= nome_usuario(); ?>
                             </span>
                         <?php
-                        }*/
+                        }
                         ?>
                     </span>
                     <a href="sair.php" class="btn btn-danger me-2">
