@@ -90,7 +90,7 @@
                 ?>
                     <a href="formulario-usuarios.php" class="btn btn-info me-2">
                     <span data-feather="user-plus"></span>
-                    Cadastar
+                        Cadastrar
                     </a>
                     <a href="form-login.php" class="btn btn-light me-2">
                         <span data-feather="log-in"></span>
