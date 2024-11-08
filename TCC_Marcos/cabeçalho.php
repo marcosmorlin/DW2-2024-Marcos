@@ -1,130 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Static Navigation - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Start Bootstrap</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
-            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-                </div>
-            </form>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Serviçoz</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+    
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .font-1 {
+            color: #000 !important;
+            font-weight: bolder;
+        }
+
+        #layoutSidenav {
+            height: 100vh; /* 100% da altura da viewport */
+            display: flex; /* Usar flexbox para organizar o layout */
+        }
+        
+        main {
+            flex-grow: 1; /* Permitir que o main ocupe o espaço restante */
+            padding: 20px; /* Espaçamento interno */
+        }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="dist/dashboard.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <?php   
+    if(!function_exists("autenticado")){
+    ?>
+        <br>
+        <h1>Atencao!!! Voce esqueceu o require do arquivo <br><strong><code>logica-autenticacao.php</code></strong></h1>
+    <?php
+        die();
+    }
+    ?>
+
+    <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">
+            Serviçoz
+        </a>
+        
+
+        <div class="navbar-collapse collapse" id="navbarsExample03">
+            <ul class="navbar-nav mr-auto px-3 pb-2">
+                <li class="nav-item">
+                    <a class="nav-link" href="inicio.php">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Servicos.php">Cadastro de Servicos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Busca_prestadores.php">Busca Profisionais</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link btn btn-light btn-sm btn-block font-1 my-1" href="form-login.php">Entrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-danger btn-sm btn-block font-1 my-1" href="sair.php">Sair</a>
                 </li>
             </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                Pages
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
-                                        Authentication
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
-                                        </nav>
-                                    </div>
-                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                        Error
-                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                    </a>
-                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                        <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="401.html">401 Page</a>
-                                            <a class="nav-link" href="404.html">404 Page</a>
-                                            <a class="nav-link" href="500.html">500 Page</a>
-                                        </nav>
-                                    </div>
-                                </nav>
-                            </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
+        </div>
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start pe-3 d-none d-sm-block">
+            <div class="text-end">
+                <?php
+                if(!autenticado()){
+                ?>
+                    <a href="formulario-usuarios.php" class="btn btn-info me-2">
+                        <span data-feather="user-plus"></span>
+                        Cadastar
+                    </a>
+                    <a href="form-login.php" class="btn btn-success">
+                        <span data-feather="log-in"></span>
+                        Entrar
+                    </a>
+
+                <?php
+                } else {
+
+                    //está autenticado
+                ?>
+                    <span class="navbar-text">
+                        <span data-feather="user"></span>
+                        <?php
+
+                        if(isAdmin()){
+                        ?>
+                            <span class="fs-4 mx-2 fw-bold text-danger">
+                                #<?= nome_usuario(); ?>
+                            </span>
+                        <?php
+
+                        } else {
+                        ?>
+                            <span class="fs-4 mx-2">
+                                <?= nome_usuario(); ?>
+                            </span>
+                        <?php
+                        }
+                        ?>
+                    </span>
+                    <a href="sair.php" class="btn btn-danger me-2">
+                        <span data-feather="log-out"></span>
+                        Sair
+                    </a>
+
+                <?php
+                }
+                ?>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Static Navigation</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Static Navigation</li>
-                        </ol>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <p class="mb-0">
-                                    This page is an example of using static navigation. By removing the
-                                    <code>.sb-nav-fixed</code>
-                                    class from the
-                                    <code>body</code>
-                                    , the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.
-                                </p>
-                            </div>
-                        </div>
-                        <div style="height: 100vh"></div>
-                        <div class="card mb-4"><div class="card-body">When scrolling, the navigation stays at the top of the page. This is the end of the static navigation demo.</div></div>
+        </div>
+
+    </header>
+    
+
+    
+        
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link" href="inicio.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-home-alt"></i></div>
+                            Início
+                        </a>
+                        <a class="nav-link" href="cadastro-servicos.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
+                            Cadastro de Serviços
+                        </a>
+                        <a class="nav-link" href="listagem-servicos.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-search"></i></div>
+                            Listagem Serviços
+                        </a>
+                        <a class="nav-link" href="cadastro-profissionais.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-alt"></i></div>
+                            Cadastrar Profissional
+                        </a>
+                        <a class="nav-link" href="listagem-profissionais.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-search"></i></div>
+                            Listagem Profissionais
+                        </a>
                     </div>
-                    
+                </div>
+            </nav>
+        </div>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2"><?=$titulo_pagina?></h1>
+                </div>
+                <br>
