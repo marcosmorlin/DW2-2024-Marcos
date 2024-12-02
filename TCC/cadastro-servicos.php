@@ -21,7 +21,7 @@ require 'cabecalho.php'
             <div class="col-8">
                 <div class="mb-3 row">
                     <div class="col-8">
-                        <label for="nome" class="form-label">Nome</label>
+                        <label for="nome" class="form-label">Serviço:</label>
                         <input type="text" class="form-control" id="nome" name="nome" required>
                     </div>
                     
@@ -35,7 +35,7 @@ require 'cabecalho.php'
                     <textarea class="form-control" name="descricao" id="descricao"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Gravar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
                 <button type="reset" class="btn btn-warning">Cancelar</button>
             </div>
         </div>
