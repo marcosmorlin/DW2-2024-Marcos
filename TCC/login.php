@@ -3,16 +3,13 @@
 session_start();
 require 'logica-autenticacao.php';
 
-$titulo_pagina = "Pagina destino da autenticação(LOGIN)";
-require 'cabecalho.php';
-
 require 'Conexao.php';
 
 
 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL);
 $senha = filter_input(INPUT_POST, "senha", FILTER_SANITIZE_SPECIAL_CHARS);
 
-echo "<p><b>Nome:</b> $email</p>";
+//echo "<p><b>Nome:</b> $email</p>";
 
 $sql = "SELECT id, nome, senha FROM usuarios WHERE email = ?";
 
@@ -27,28 +24,19 @@ if(password_verify($senha, $row['senha'])){
     $_SESSION["nome"] = $row['nome'];
     $_SESSION["idUsuario"] = $row['id'];
 
-?>
-    <div class="alert alert-success" role="alert">
-        <h4>Autenticado com sucesso</h4>
-    </div>
-
-<?php
-
+    $_SESSION["result_login"] = true;
     
 } else {
-    //nao deu certo, erro
+    //nao deu certo, senha ou email errado
     unset($_SESSION["email"]);
     unset($_SESSION["nome"]);
 
-    ?><br>
+    $_SESSION["result_login"] = false;
+    $_SESSION["erro"] = "Usuario ou senha incorretos.";
+
     
-    <div class="alert alert-danger" role="alert">
-        <h4>Falha ao efetuar atenticação</h4>
-        <p>Usuario ou senha incorretos</p>
-    </div>
-
-    <?php
 }
-require 'rodape.php'
 
+//require 'rodape.php'
+redireciona("form-login.php");
 ?>
