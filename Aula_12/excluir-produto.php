@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+require "logica-autenticacao.php";
+
 $titulo_pagina = "página de exclusão de produtos";
 require 'cabeçalho.php';
 
