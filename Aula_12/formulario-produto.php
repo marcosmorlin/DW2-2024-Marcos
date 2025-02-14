@@ -59,7 +59,8 @@ require 'cabeçalho.php'
                 </div>
                 <div class="mb-3">
                     <label for="urlfoto" class="form-label">
-                        URL de uma foto/Imagem do produto</label>
+                        URL de uma foto/Imagem do produto
+                    </label>
                     <input type="url" class="form-control" id="urlfoto" name="urlfoto" aria-describedby="urlforoHelp" required onchange= "imagePreview(this.value)">
                     <div id="urlfotoHelp" class="form-text">
                         Endereço http de uma imagem da internet
