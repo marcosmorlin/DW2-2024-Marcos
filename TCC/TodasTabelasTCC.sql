@@ -19,14 +19,16 @@ INSERT INTO usuarios (nome, email, senha) VALUES
 
 CREATE TABLE profissionais (
     	id 				INT 			NOT NULL 	AUTO_INCREMENT,
-    	id_usuario		INT			NOT NULL,	
-        telefone		VARCHAR(150)		NOT NULL, 
+    	id_usuario		INT				NOT NULL,	
+        telefone		VARCHAR(150)	NOT NULL, 
         rede_social		TEXT			NOT NULL,
     	descricao		TEXT			NOT NULL,
     	PRIMARY KEY (id),
-    	FOREIGN KEY (id_usuario) 	REFERENCES usuarios(id),
+    	FOREIGN KEY (id_usuario) 		REFERENCES usuarios(id),
 		CONSTRAINT 	profissional_usuario UNIQUE (id_usuario)
 ) ENGINE=InnoDB;
+
+
 INSERT INTO profissionais (id_usuario, telefone, rede_social, descricao) VALUES
 (1, '(17) 99999-9999', 'linkedin.com/in/ederpansani', 'Desenvolvedor web e professor, apaixonado por tecnologia e educação.');
 
@@ -68,3 +70,31 @@ CREATE TABLE servico_profissional(
     CONSTRAINT FOREIGN KEY (id_servico) REFERENCES servicos (id),
 	CONSTRAINT 	profissional_servico UNIQUE (id_profissional,id_servico)
 )
+
+/*
+Eder Pansani (id_profissional = 1) oferece Consultoria de TI, Desenvolvimento de Sites e Treinamento em Tecnologia
+Marcos Morlin (id_profissional = 2) oferece Manutenção de Computadores, Suporte Técnico e Gerenciamento de Redes
+*/
+
+-- mock data
+INSERT INTO servico_profissional (id_profissional, id_servico) VALUES
+(1, 1), -- Consultoria de TI
+(1, 3), -- Desenvolvimento de Sites
+(1, 5), -- Treinamento em Tecnologia
+(2, 2), -- Manutenção de Computadores
+(2, 4), -- Suporte Técnico
+(2, 6); -- Gerenciamento de Redes
+
+
+CREATE TABLE administradores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(350) NOT NULL,
+    email VARCHAR(350) NOT NULL UNIQUE,
+    senha VARCHAR(150) NOT NULL,
+    ativo BOOLEAN NOT NULL
+);
+
+INSERT INTO administradores (nome, email, senha, ativo)
+VALUES ('Marcos', 'marcos@gmail.com', SHA2('123', 256), true);
+
+SELECT * FROM administradores;

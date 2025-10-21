@@ -9,12 +9,16 @@ if(!autenticado()){
     die();
 }
 
-$titulo_pagina = "Listagem de usuarios";
+$titulo_pagina = "Usuarios";
 require 'cabecalho.php';
 
 require 'Conexao.php';
 
-$sql = "SELECT id, nome, email FROM usuarios ORDER BY id";
+$sql = "SELECT id, nome, email, 'usuario' as tipo FROM usuarios
+        UNION
+        SELECT id, nome, email, 'admin' as tipo FROM administradores
+        ORDER BY nome";
+
 $stmt = $conn->query($sql);
 
 $count = $stmt->rowCount();
@@ -31,11 +35,11 @@ if($count == 0){
 
 ?>
         <div class="table-responsive">
-            <table class="table table-stripped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col" style="width: 10%;">ID</th>
-                        <th scope="col" style="width: 35%;">Nome</th>
+                        <th scope="col" style="width: 35%;">Usuario</th>
                         <th scope="col" style="width: 30%;">Email</th>
                         <th scope="col" style="width: 25%;"></th>
                     </tr>
@@ -46,7 +50,19 @@ if($count == 0){
                     ?>
                         <tr>
                             <td><?= $row['id'] ?></td>
-                            <td><?= $row['nome'] ?></td>
+                            <td>
+                                <?php
+                                if($row["tipo"] == "admin"){
+                                ?>
+                                    <span class="text-danger fw-bold">#<?= $row['nome']?></span>
+                                <?php
+                                } else {
+                                ?>
+                                    <?= $row['nome']?>
+                                <?php
+                                }
+                                ?>   
+                            </td>
                             
                             <td><?= $row['email'] ?></td>
                             <td class="text-end">

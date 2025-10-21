@@ -1,15 +1,22 @@
 <?php
+
+?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<?php
 session_start();
 require 'logica-autenticacao.php';
 
-$titulo_pagina = "formulario de cadastro de usuarios";
+
+$titulo_pagina = "Cadastro";
 require 'cabecalho.php';
 
 ?>
 <script>
     function verifica_senhas(){
-        var senha = document.getElementbyId("senha");
-        var confsenha = document.getElementbyId("confsenha");
+        var senha = document.getElementById("senha");
+        var confsenha = document.getElementById("confsenha");
 
         if(senha.value && confsenha.value){
             if(senha.value != confsenha.value){
@@ -23,9 +30,17 @@ require 'cabecalho.php';
         }
     }
 </script>
+
+<div class="alert alert-warning col-md-5" role="alert">
+    <h3>
+        <i class="bi bi-exclamation-triangle-fill"> Atenção </i>
+    </h3>
+    <h6>O cadastro é apenas para pessoas que queiram divulgar seus serviços.</h6>
+</div>
+
 <form action="inserir-usuario.php" method= "Post" class="mb-4">
     <div class="row">
-        <div class="col-3">
+        <div class="col-4">   
             <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
@@ -51,8 +66,8 @@ require 'cabecalho.php';
             <img src="https://www.kindpng.com/picc/m/3-39853_add-user-group-woman-man-icon-user-add.png" class="img-thumbnail">
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Gravar</button>
-    <button type="reset" class="btn btn-warning">Cancelar</button>
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <button type="reset" class="btn btn-danger">Cancelar</button>
 
 </form>
 
@@ -62,9 +77,8 @@ if(isset($_SESSION["result"])) {
     if($_SESSION["result"]){
         // SE DEU CERTO O RESULT FOR TRUE
         ?>
-    <h2>tetse</h2>
         <div class="alert alert-success" role="alert">
-            <h4>Dados gravados com sucesso</h4>
+            <h4>Cadastro feito com sucesso</h4>
             <p>
                 Clique <a href="form-login.php">aqui</a>
                 para se autenticar.
@@ -78,7 +92,7 @@ if(isset($_SESSION["result"])) {
     ?>
     
         <div class="alert alert-danger" role="alert">
-            <h4>falha ao efetuar gravação.</h4>
+            <h4>Erro ao se cadastrar</h4>
             <p><?php echo $erro ?></p>
         </div>
 <?php

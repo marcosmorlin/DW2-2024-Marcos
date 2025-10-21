@@ -1,4 +1,4 @@
-<?php/*
+<?php
 $conf = parse_ini_file("config.ini");
 
 $string_connection = $conf["driver"] .
@@ -16,7 +16,7 @@ try {
         echo "<h2>Sucesso!</h2>";
         echo "<p>Conectado ao banco <b>" . $conf["database"] . "</b></p>";
     }
-} */catch (Exception $e) {
+} catch (Exception $e) {
     echo "<p>Erro ao se conectar no banco de dados. </p>";
     echo $e->getMessage();
 }

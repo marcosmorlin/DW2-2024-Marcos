@@ -31,6 +31,11 @@
         return $_SESSION["idUsuario"];
     }
 
+    function isProfissional(){
+        return isset($_SESSION["id_profissional"]) && !empty($_SESSION["id_profissional"]);
+        
+    }
+
     function redireciona($pagina = null){
         if(empty($pagina)){
             $pagina = "index.php";

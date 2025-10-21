@@ -1,17 +1,22 @@
+<style>
+    .link-small{
+        font-size: 0.8em;
+    }
+</style>
 <?php
 
 session_start();
 require "logica-autenticacao.php";
 
-/** Tratamento de permissoes */
+/*Tratamento de permissoes 
 if(!autenticado() || !isAdmin()){
     $_SESSION["restrito"] = true;
     redireciona();
     die();
 }   
-/** Tratamento de permissoes */
+Tratamento de permissoes 
 
-$titulo_pagina = "Listagem/Busca de serviços";
+$titulo_pagina = "Listagem | Busca de serviços";
 require 'cabecalho.php';
 
 require 'Conexao.php';
@@ -28,34 +33,12 @@ if(isset($_POST["busca"]) && !empty($_POST["busca"])){
     $tipo_busca = filter_input(INPUT_POST, "tipo_busca", FILTER_SANITIZE_SPECIAL_CHARS);
     $buscaOriginal = $busca;
 
-    var_dump($busca);
-    var_dump($tipo_busca);
-    
-    if($tipo_busca == "id"){
+    if($tipo_busca == "profissionais"){
 
-        $sql = "SELECT id, nome, descricao from servicos WHERE ID = ? ORDER BY $ordem";
+        $sql = "SELECT id, nome, from profissionais WHERE ID = ? ORDER BY $ordem";
         $stmt = $conn->prepare($sql);
         $result = $stmt->execute([$busca]);
         
-    } elseif($tipo_busca == "nome"){
-
-        $sql = "SELECT id, nome, descricao from servicos WHERE nome like ? ORDER BY $ordem";
-                
-        $busca = '%'.$busca.'%';
-        $busca = str_replace(' ', '%', $busca);
-
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute([$busca]);
-
-    } elseif($tipo_busca == "descr"){
-
-        $sql = "SELECT id, nome, descricao from servicos WHERE descricao like ? ORDER BY $ordem";
-                
-        $busca = '%'.$busca.'%';
-        $busca = str_replace(' ', '%', $busca);
-
-        $stmt = $conn->prepare($sql);
-        $result = $stmt->execute([$busca]);
 
     } else {
 
@@ -84,23 +67,21 @@ if(isset($_POST["busca"]) && !empty($_POST["busca"])){
 <div class="row">
     <div class="col">
         <form class="row" role="search" method="post" action="?ordem=<?=$ordem?>">
-            <label for="tipo_busca" class="fs-5 col-sm-2 col-form-label-sm text-end">
-                Buscar por:
+            <!--<label for="tipo_busca" class="fs-5 col-sm-2 col-form-label-sm text-end">
+                Filtrar por:
             </label>
             <div class="col-sm-2">
                 <select name="tipo_busca" id="tipo_busca" class="form-select">
-                    <option value="" <?php if(empty($tipo_busca)) echo "selected"; ?>>Todos os campos</option>
-                    <option value="id" <?php if($tipo_busca == "id") echo "selected"; ?>>ID</option>
-                    <option value="nome" <?php if($tipo_busca == "nome") echo "selected"; ?> >Nome do Serviço</option>
-                    <option value="descr" <?php if($tipo_busca == "descr") echo "selected"; ?>>Descricao de serviço</option>
+                    <option value="" <?php if(empty($tipo_busca)) echo "selected"; ?>>Todos os campos</option>  
+                    <option value="nome" <?php if($tipo_busca == "nome") echo "selected"; ?> >Nome</option>
                 </select>
-            </div>
+            </div>-->
             <div class="col-sm-6">
                 <input class="form-control me-2" type="search" name="busca" id="busca"
                 placeholder="Search" aria-label="Search">
             </div>
             <div class="col-sm-2">
-                <button class="btn btn-primary" type="submit">
+                <button style="background-color: #2d5986; color: white;" class="btn btn-primary" type="submit">
                     <i data-feather="search"></i><span class="px-2">Pesquisar</span>
                 </button>
             </div>
@@ -115,7 +96,7 @@ if(!empty($busca)){
     <div class="row">
         <div class="col">
             <div class="alert alert-light mb-0 fs-4" role="alert">
-                Voce esta buscando por: "<mark class="fst-italic"><?=$buscaOriginal?></mark>", <a href="?ordem=<?= $ordem ?>">Limpar</a>
+                Voce esta buscando por: "<mark class="fst-italic"><?=$buscaOriginal?></mark>", <a class="link-small" href="?ordem=<?= $ordem ?>">Limpar</a>
             </div>
         </div>
     </div>
@@ -129,29 +110,11 @@ if(!empty($busca)){
     <table class="table table-striped">
         <thead class="table-dark">
             <tr>
-                <?php
-                if($ordem == "nome"){
-                ?>
-                    <th scope="col" style="width: 10%;">
-                        <a href="?ordem=id">ID</a>
-                    </th>
-                    <th scope="col" style="width: 25%;">
-                        Nome<i data-feather="chevron-down"></i> 
-                    </th>
-                <?php
-                } else {
-                ?>
-                    <th scope="col" style="width: 10%;">
-                        ID<i data-feather="chevron-down"></i> 
-                    </th>
-                    <th scope="col" style="width: 25%;">
-                        <a href="?ordem=nome">Nome</a>                       
-                    </th>
-                    <?php
-                }
-                ?>
                 
+                <th scope="col" style="width: 10%;">ID</th>
+                <th scope="col" style="width: 25%;">Servico</th>
                 <th scope="col" style="width: 25%;">Descricao</th>
+                <th scope="col" style="width: 25%;">profissional</th>
                 <?php
                 if(autenticado()){
                 ?>
@@ -170,18 +133,19 @@ if(!empty($busca)){
             
             <td><?=$row["id"]?></td>
             <td><?=$row["nome"]?></td>
-            <td><?= $row["descricao"]?></td>
+            <td><?=$row["descricao"]?></td>
+            
             <?php
             if(autenticado()){
             ?>
-            <td>
+            <td class="text-end">
                 <a class="btn btn-sm btn-warning" href="formulario-alterar-servicos.php?id=<?=$row["id"]?>">
                     <span data-feather="edit"></span>
                     Editar
                 </a>
             </td>
 
-            <td>
+            <td class="text-end">
                 <a class="btn btn-sm btn-danger" href="excluir-servico.php?id=<?=$row["id"]?>"
                 onclick = "if(!confirm('Tem certeza que deseja excluir?')) return false;">
                     <span data-feather="trash-2"></span>
@@ -205,4 +169,4 @@ if(!empty($busca)){
 <?php
 
 require 'rodape.php'
-?>
+?>*/

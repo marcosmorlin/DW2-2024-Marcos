@@ -1,8 +1,16 @@
 <?php
 
+session_start();
+require "logica-autenticacao.php";
 
 $titulo_pagina = "Pagina de exclusão de Servicos";
 require 'cabecalho.php';
+
+if(!autenticado()){
+    $_SESSION["restrito"] = true;
+    redireciona();
+    die();
+}
 
 require 'Conexao.php';  
 
@@ -30,7 +38,7 @@ if($result == true && $count >= 1){
     ?>
         <div class="alert alert-danger" role="alert">
             <h4>Falha ao efetuar exclusão</h4>
-            <p>Não foi encontrado nenhum registro com o ID = <?= $id?></p>
+            <p>Não foi encontrado nenhum serviço com o ID = <?= $id?></p>
         </div>
 
     <?php

@@ -15,7 +15,7 @@ $id = filter_input(INPUT_GET, "id", FILTER_SANITIZE_NUMBER_INT);
 
 //id_usuario() => id de quem esta autenticado 
 
-if(id_usuario() != $id){
+if(id_usuario() != $id && !isAdmin()){
     $_SESSION["result"] = false;
     $_SESSION["erro"] = "Operacao nao permitida";
     redireciona("listagem-usuarios.php");
@@ -40,7 +40,9 @@ $count = $stmt->rowCount();
 if($result == true && $count >= 1){
     
     if(isAdmin()){
+
         redireciona("listagem-usuarios.php");
+        
     } else {
 
     redireciona("sair.php");
