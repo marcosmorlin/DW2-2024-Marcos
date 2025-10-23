@@ -1,3 +1,5 @@
+<meta charset="UTF-8">
+
 <style>
     .link-small {
         font-size: 0.8em;
