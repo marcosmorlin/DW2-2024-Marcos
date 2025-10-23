@@ -1,10 +1,14 @@
-<style>
-    .link-small {
-        font-size: 0.8em;
-    }
-</style>
-<?php
+<head>
+    <meta charset="UTF-8">
 
+    <style>
+        .link-small {
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+
+<?php
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
 require "logica-autenticacao.php";
